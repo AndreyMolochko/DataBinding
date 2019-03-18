@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.databinding.model.Dish" />
+
+        <variable
+            name="handler"
+            type="com.example.databinding.callbacks.HandlerCookingDish" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".activities.cookingDishActivity">
+
+        <ImageView
+            android:id="@+id/cooking_dish_avatar"
+            android:layout_width="@dimen/image_avatar_size"
+            android:layout_height="@dimen/image_avatar_size"
+            android:layout_marginStart="@dimen/normal_margin"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_image_grey" />
+
+
+        <TextView
+            android:id="@+id/cooking_dish_name_text_view"
+            style="@style/StyleTitleCardView"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:text="@{model.name}"
+            app:layout_constraintStart_toEndOf="@+id/cooking_dish_avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cooking_dish_cooking_list_text_view"
+            style="@style/StyleSubtitleCardView"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:maxLines="16"
+            android:entries="@array/dishesCategories"
+            android:text="@{model.pointCookingList}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cooking_dish_avatar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cooking_dish_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:background="@drawable/shape_edit_text"
+            app:layout_constraintBottom_toTopOf="@+id/cooking_dish_end_cooking_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cooking_dish_cooking_list_text_view" />
+
+        <Button
+            android:id="@+id/cooking_dish_end_cooking_button"
+            style="@style/StyleButton"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/quarter_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.endCookingDish()}"
+            android:text="@string/end_cooking"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cooking_dish_cancel_dish_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/cooking_dish_cancel_dish_button"
+            style="@style/StyleButton"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.cancelCookingDish()}"
+            android:text="@string/cancel_cooking"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cooking_dish_end_cooking_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

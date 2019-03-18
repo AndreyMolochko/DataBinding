@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--sizes-->
+    <dimen name="recycler_item_dishes_image_size">200dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="spinner_height">56dp</dimen>
+    <dimen name="corner_radius">5dp</dimen>
+    <dimen name="image_point_size">4dp</dimen>
+    <dimen name="image_arrow_size">36dp</dimen>
+    <dimen name="image_more_size">24dp</dimen>
+    <dimen name="image_avatar_size">64dp</dimen>
+    <!--margins-->
+    <dimen name="quarter_margin">4dp</dimen>
+    <dimen name="half_margin">8dp</dimen>
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="large_margin">24dp</dimen>
+    <!--paddings-->
+    <dimen name="half_padding">8dp</dimen>
+    <dimen name="normal_padding">16dp</dimen>
+    <dimen name="large_padding">24dp</dimen>
+    <!--text sizes-->
+    <dimen name="ScaleH5">24sp</dimen>
+    <dimen name="ScaleSubtitle1">16sp</dimen>    
+    <dimen name="ScaleButton">14sp</dimen>
+</resources>

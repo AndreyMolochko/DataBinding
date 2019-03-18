@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dish"
+            type="com.example.databinding.model.Dish" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/half_padding"
+        app:cardCornerRadius="@dimen/corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:paddingBottom="@dimen/normal_padding">
+
+            <TextView
+                android:id="@+id/item_recycler_dishes_title_text_view"
+                style="@style/StyleTitleCardView"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/half_margin"
+                android:text="@{dish.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="blablablabla" />
+
+            <ImageView
+                android:id="@+id/item_recycler_dishes_more_image_view"
+                android:layout_width="@dimen/image_more_size"
+                android:layout_height="@dimen/image_more_size"
+                android:layout_marginEnd="@dimen/normal_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/item_recycler_dishes_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/item_recycler_dishes_title_text_view"
+                app:srcCompat="@drawable/ic_more_horizontal" />
+
+            <ImageView
+                android:id="@+id/item_recycler_dishes_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recycler_item_dishes_image_size"
+                android:layout_marginTop="@dimen/half_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_recycler_dishes_title_text_view"
+                app:path="@{dish.path}"
+                app:srcCompat="@drawable/ic_image_grey" />
+
+            <TextView
+                android:id="@+id/item_recycler_dishes_counter_text_view"
+                style="@style/StyleSubtitleCardView"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/half_margin"
+                android:text="@{String.format(@string/item_recycler_dishes_you_cooked_dishes,dish.counterCooking)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_recycler_dishes_image_view" />
+
+            <TextView
+                android:id="@+id/item_recycler_dishes_cook_button"
+                style="@style/StyleActionTextViewCardView"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/half_margin"
+                android:text="@string/item_recycler_dishes_cook"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_recycler_dishes_counter_text_view" />
+
+            <ImageView
+                android:id="@+id/item_recycler_dishes_arrow_image_view"
+                android:layout_width="@dimen/image_arrow_size"
+                android:layout_height="@dimen/image_arrow_size"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/half_margin"
+                android:clickable="true"
+                android:text="@string/item_recycler_dishes_ingredients"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_recycler_dishes_counter_text_view"
+                app:srcCompat="@drawable/ic_arrow_down" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/item_recycler_dishes_cook_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

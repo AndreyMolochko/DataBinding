@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ingredient"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_recycler_ingredients_dot_image_view"
+            android:layout_width="@dimen/image_point_size"
+            android:layout_height="@dimen/image_point_size"
+            android:layout_marginStart="@dimen/normal_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/item_recycler_ingredients_content_image_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_recycler_ingredients_content_image_view"
+            app:srcCompat="@drawable/ic_circle" />
+
+        <TextView
+            android:id="@+id/item_recycler_ingredients_content_image_view"
+            style="@style/StyleSubtitleCardView"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:text="@{ingredient.toString()}"
+            app:layout_constraintStart_toEndOf="@+id/item_recycler_ingredients_dot_image_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Med" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.databinding.model.Dish" />
+
+        <variable
+            name="handler"
+            type="com.example.databinding.callbacks.HandlerAdditionDish" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".activities.AdditionDishActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addition_dish_name_edit_text"
+            style="@style/StyleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:outlineProvider="background"
+                android:paddingEnd="@dimen/normal_padding"
+                android:paddingStart="@dimen/normal_padding"
+                android:text="@={model.name}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addition_dish_avatar"
+            android:layout_width="@dimen/image_avatar_size"
+            android:layout_height="@dimen/image_avatar_size"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.onClickAvatar()}"
+            android:src="@drawable/ic_image_grey"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addition_dish_name_edit_text" />
+
+
+        <Spinner
+            android:id="@+id/addition_dish_category_spinner"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spinner_height"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:entries="@array/dishesCategories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addition_dish_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/addition_dish_name_edit_text" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/StyleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addition_dish_category_spinner">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cooking_list"
+                android:inputType="textMultiLine"
+                android:lines="7"
+                android:paddingEnd="@dimen/normal_padding"
+                android:paddingStart="@dimen/normal_padding"
+                android:text="@={model.pointCookingList}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/addition_dish_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/half_margin"
+            android:background="@drawable/shape_edit_text"
+            app:layout_constraintBottom_toTopOf="@+id/addition_dish_add_ingredient_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <Button
+            android:id="@+id/addition_dish_add_ingredient_button"
+            style="@style/StyleButton"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/quarter_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.onClickAddIngredientButton()}"
+            android:text="@string/add_ingredient"
+            app:layout_constraintBottom_toTopOf="@+id/addition_dish_add_dish_button"
+            app:layout_constraintEnd_toStartOf="@+id/addition_dish_delete_ingredient_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/addition_dish_delete_ingredient_button"
+            style="@style/StyleButton"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.onClickDeleteIngredientButton()}"
+            android:text="@string/delete_ingredient"
+            app:layout_constraintBottom_toTopOf="@+id/addition_dish_add_dish_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/addition_dish_add_ingredient_button" />
+
+        <Button
+            android:id="@+id/addition_dish_add_dish_button"
+            style="@style/StyleButton"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:onClick="@{() ->  handler.onClickAddDishButton()}"
+            android:text="@string/add_dish"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

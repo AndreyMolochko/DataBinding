@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">DataBinding</string>
+    <string name="item_recycler_dishes_you_cooked_dishes">You cooked this dish %s times</string>
+    <string name="item_recycler_dishes_cook">Cook</string>
+    <string name="item_recycler_dishes_ingredients">Ingredients</string>
+    <string name="dish_was_added">Dish was added</string>
+    <string name="soups">Soups</string>
+    <string name="main">Main</string>
+    <string name="salads">Salads</string>
+    <string name="dessert">Dessert</string>
+    <string name="drinks">Drinks</string>
+    <string name="name">Name</string>
+    <string name="cooking_list">Cooking List</string>
+    <string name="add_ingredient">Add Ingredient</string>
+    <string name="add_dish">Add Dish</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="cancel">CANCEL</string>
+    <string name="change">Change</string>
+    <string name="delete_ingredient">Delete Ingredient</string>
+    <string name="change_dish">Change Dish</string>
+    <string name="dish_was_changed">Dish was changed</string>
+    <string name="cancel_cooking">Cancel cooking</string>
+    <string name="end_cooking">End Cooking</string>
+    <string name="yes">yes</string>
+    <string name="do_you_really_want_to_exit">Do you really want to finish?</string>
+    <string name="do_you_really_want_to_leave">Do you really want to leave cooking?</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string-array name="dishesCategories">
+        <item>Soups</item>
+        <item>Main</item>
+        <item>Salads</item>
+        <item>Dessert</item>
+        <item>Drinks</item>
+    </string-array>
+</resources>
